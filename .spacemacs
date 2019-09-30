@@ -325,10 +325,12 @@ you should place your code here."
            (figwheel-sidecar.repl-api/cljs-repl))")
 
   ;; set org-specific variables
+  (with-eval-after-load 'org
+    ;; https://github.com/syl20bnr/spacemacs/issues/9603#issuecomment-435283494
+    (org-defkey org-mode-map [(meta return )] 'org-meta-return)) 
   (setq org-agenda-files '("~/org"))
   (setq org-default-notes-file "~/org/notes.org")
-  ;;(org-defkey org-mode-map [(meta return)] 'org-meta-return) ;; https://github.com/syl20bnr/spacemacs/issues/9603
-
+  
   ;; start emacs in fullscreen
   (custom-set-variables
    '(initial-frame-alist (quote ((fullscreen . maximized))))
