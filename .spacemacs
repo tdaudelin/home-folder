@@ -33,9 +33,8 @@ values."
    '(
      javascript
      yaml
-
-     python
-     clojure
+     ;; python
+     ;; clojure
      html
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.

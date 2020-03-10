@@ -2,14 +2,18 @@
 
 Set up SSH access to personal github account
 
+```
 git config --global user.name "Travis Daudelin"
 git config --global user.email "{work email}"
 git config --global pull.rebase true
+```
 
+```
 cd ~/
 git init
 git remote add origin git@github.com:tdaudelin/home-folder.git
 git pull origin master --allow-unrelated-histories
+```
 
 ## Editors
 

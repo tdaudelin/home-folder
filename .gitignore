@@ -2,8 +2,10 @@
 *
 
 # except these files
+!.gitconfig
 !.gitignore
 !.spacemacs
 !.bashrc
 !.bash_profile
+!.zshrc
 !SETUP.md

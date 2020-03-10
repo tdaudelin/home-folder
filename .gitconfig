@@ -1,0 +1,5 @@
+[user]
+	name = Travis Daudelin
+	email = travis.daudelin@digikey.com
+[pull]
+	rebase = true
