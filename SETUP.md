@@ -26,6 +26,7 @@ https://code.visualstudio.com/
   * lfs.vscode-emacs-friendly
   * eamodio.gitlens
   * msjsdiag.debugger-for-chrome
+* https://code.visualstudio.com/docs/setup/mac
 
 
 ## SDKs
