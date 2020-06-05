@@ -34,6 +34,12 @@ https://code.visualstudio.com/
 https://github.com/nvm-sh/nvm
 https://sdkman.io/
 
+### Python 3
+```
+sudo apt install python3 python3-pip ipython3
+sudo -H pip3 install -U pipenv
+```
+
 ## Misc
 
 https://github.com/rhyeal/aws-rotate-iam-keys
