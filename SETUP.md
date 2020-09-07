@@ -18,9 +18,13 @@ git pull origin master --allow-unrelated-histories
 ## Editors
 
 https://www.emacswiki.org/emacs/EmacsForMacOS
+
 https://www.spacemacs.org/
+
 https://www.jetbrains.com/toolbox-app/?fromMenu
+
 https://code.visualstudio.com/
+
 * Plugins
   * emmanuelbeziat.vscode-great-icons
   * lfs.vscode-emacs-friendly
@@ -32,6 +36,7 @@ https://code.visualstudio.com/
 ## SDKs
 
 https://github.com/nvm-sh/nvm
+
 https://sdkman.io/
 
 ### Python 3
@@ -43,7 +48,9 @@ sudo -H pip3 install -U pipenv
 ## Misc
 
 https://github.com/rhyeal/aws-rotate-iam-keys
+
 https://cli.vuejs.org/
+
 https://sensible-side-buttons.archagon.net/
 
 Avatar saved in MM Google Drive
