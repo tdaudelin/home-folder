@@ -1,5 +1,5 @@
 ## Shell
-
+### Oh My Zsh
 https://github.com/ohmyzsh/ohmyzsh/wiki
 
 If you get the "there are insecure directories" warning, run:
@@ -7,6 +7,11 @@ If you get the "there are insecure directories" warning, run:
 ```
 compaudit | xargs chmod g-w
 ```
+
+### Theme
+
+* https://github.com/romkatv/powerlevel10k
+* git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 ## Git and Home Dir
 
