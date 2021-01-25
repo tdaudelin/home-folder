@@ -8,7 +8,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     export EDITOR="/Applications/Emacs.app/Contents/MacOS/Emacs"
 fi
 
-PATH=$HOME/bin:$PATH
+PATH=$HOME/bin:$PATH:/usr/local/sbin
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

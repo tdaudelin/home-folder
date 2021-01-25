@@ -1,3 +1,13 @@
+## Shell
+
+https://github.com/ohmyzsh/ohmyzsh/wiki
+
+If you get the "there are insecure directories" warning, run:
+
+```
+compaudit | xargs chmod g-w
+```
+
 ## Git and Home Dir
 
 Set up SSH access to personal github account
