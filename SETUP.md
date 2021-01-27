@@ -45,6 +45,7 @@ https://code.visualstudio.com/
   * lfs.vscode-emacs-friendly
   * eamodio.gitlens
   * msjsdiag.debugger-for-chrome
+  * orta.vscode-jest
 * https://code.visualstudio.com/docs/setup/mac
 
 
