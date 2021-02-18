@@ -52,6 +52,20 @@ https://code.visualstudio.com/
 ## SDKs
 
 https://github.com/nvm-sh/nvm
+```
+# Install most recent NodeJS LTS and NPM
+$ nvm install --lts
+$ nvm use --lts
+$ nvm install --latest-npm
+ 
+# Configure NPM to use private Artifactory instead of public NPM registry
+$ curl -u 'USERNAME:PASSWORD' AUTH_URL > ~/.npmrc # npm login --always-auth might also work (need to set registry first)
+$ npm config set registry VIRTUAL_REGISTRY_URL
+ 
+# Additional ~/.npmrc settings
+$ npm config set save-exact true
+$ npm config set engine-strict true
+```
 
 https://sdkman.io/
 
