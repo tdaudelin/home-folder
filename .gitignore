@@ -1,7 +1,10 @@
 # ignore everything
 *
+# but still descend into "setup" directories
+!/setup/
 
-# except these files
+# allow these files
+!/setup/**/*
 !.gitignore
 !.spacemacs
 !.bashrc
