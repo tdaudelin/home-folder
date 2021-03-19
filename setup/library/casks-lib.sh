@@ -13,6 +13,7 @@ function install_emacs() {
 function casks_setup() {
   print_header "Casks"
   install_emacs
+  print_info "Installing various casks..."
   brew cask install docker \
       google-chrome \
       jetbrains-toolbox \

@@ -62,6 +62,9 @@ main(){
     # Install nvm and node tools
     node_setup
 
+    # Install python 3 and tools
+    python_setup
+
     # # Setup 
     # ops_tools_setup
 
