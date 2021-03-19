@@ -4,7 +4,6 @@
 CMD="$0"
 SCRIPT_DIR="$(cd "$(dirname "${CMD}")" && pwd -P)"
 for f in $SCRIPT_DIR/library/*.sh; do
-  echo "Library script: $f"
   source $f
 done
 
@@ -15,12 +14,6 @@ main(){
 
     # We might need this if the script takes too long too download
     # while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-    read -p "Enter your name as you would like it to appear in git: " git_name
-    echo $git_name
-
-    read -p "Enter your work email: " email
-    echo $email
 
     # read -p "Enter Team Bitbucket Slugs: " TEAM_SLUG
 
@@ -48,30 +41,26 @@ main(){
     echo "Do you want to start the script?"
     read -p "Continue? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
 
-    OPERATING_SYSTEM="$(what_operating_system)"
-    echo "OPERATING_SYSTEM: $OPERATING_SYSTEM"
-
     # Spawn a child process or shell to start downloading applications like Intellij, VSCode
     # Spawn a child process for other cli commands that we can run that aren't 
     #           related to homebrew, git, sdkman or development tools
 
 
-    if [[ $OPERATING_SYSTEM == 'mac' ]]
-    then
+    if [[ $(what_operating_system) == 'mac' ]]; then
       mac_osx_setup
-      # homebrew_setup
+      homebrew_setup
     fi
 
-    # # Setup Git
-    # git_setup
+    # Setup Git
+    git_setup "$gitName" "$email"
 
-    # # After git setup, spawn a child process to download all repos of provided slugs, accept a comma sep. list
+    # After git setup, spawn a child process to download all repos of provided slugs, accept a comma sep. list
 
-    # # Install sdkman
-    # sdkman_setup
+    # Install Java and other JDK ecosystem tech
+    java_setup
 
-    # # Install nvm and node tools
-    # node_setup
+    # Install nvm and node tools
+    node_setup
 
     # # Setup 
     # ops_tools_setup
@@ -81,7 +70,7 @@ main(){
 
 # Traps
 finish(){
-  echo "Cleaning up . . ."
+  print_header "Please close and reopen your terminal"
 }
 trap finish EXIT
 

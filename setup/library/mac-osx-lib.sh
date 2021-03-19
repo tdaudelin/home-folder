@@ -1,17 +1,16 @@
 function verify_make() {
-    echo "+ Verifying make"
-    if command -v make >/dev/null
-        then
-        echo "+ Make is installed: $(make --version | grep GNU)"
+    print_info "Verifying make..."
+    if command_exists make; then
+        print_info "Make is installed: $(make --version | grep GNU)"
     else
-        echo "- Make is required, install Xcode tools or your distribution's build tool package"
+        print_error "Make is required, install Xcode tools or your distribution's build tool package"
         exit 1
     fi
 }
 
 # Set Finder preferences
 function configure_finder() {
-    echo 'Showing hidden files'
+    print_info 'configuring Finder'
     # Set desktop folder as default
     defaults write com.apple.finder NewWindowTarget -string "PfDe"
     # Always show hidden files
@@ -29,14 +28,12 @@ function mac_osx_setup() {
     # Install only recommended available updates
     # sudo softwareupdate -ir --verbose
 
-    echo "------------------------------"
-    echo "Installing Xcode Command Line Tools."
-    # Install Xcode command line tools
-    if command -v xcode-select >/dev/null
-        then
-        echo "+ Xcode is installed: $(xcode-select --version)"
+    print_header "MacOS Setup"
+    print_info "Verifying Xcode command line tools"
+    if command_exists xcode-select; then
+        print_info "Xcode is installed: $(xcode-select --version)"
     else
-        echo "- Xcode is not installed."
+        print_warn "Xcode is not installed. Installing..."
         xcode-select --install
     fi
 

@@ -1,49 +1,57 @@
 # TODO: refactor to use brew: https://medium.com/@katopz/how-to-upgrade-git-ff00ea12be18
 
-# Verify Git is installed
-function verify_git () {
-    if ! command -v git >/dev/null; then
-        echo -e "- ERROR: git is required for publishing\nhttps://git-scm.com/"
-        exit 1
-    else
-        local readonly gitPrefix="git version "
-        local readonly gitVersion=$(git --version)
-        local readonly gitVersionMajor=$(echo "${gitVersion#$gitPrefix}" | awk -F \. {'print $1'})
+function install_git() {
+  local readonly os="$(what_operating_system)"
+  if [[ os == "mac" ]]; then
+    git config --global credential.helper osxkeychain
+    brew install git
+    brew link --force git
+    # force rehash of $PATH to pick up new git executable
+    hash -r
+    print_info "installed $(git --version)"
+  else
+    print_error "Unsupported OS: $os"
+    exit 1
+  fi
+}
 
-        if [ "$gitVersionMajor" == "1" ]
-            then
-            echo -e "- ERROR: git@^2 is required for publishing\nhttps://git-scm.com/"
-            exit 1
-        else
-            echo "+ Git is installed at the minimum required version: $(git --version)"
-        fi
-    fi
+function configure_git() {
+  read -p "Enter your name as you would like it to appear in git: " gitName
+  read -p "Enter your work email: " email
+
+  git config --global user.name "$gitName"
+  git config --global user.email "$email"
+  git config --global pull.rebase true
+  git config --global fetch.prune true
+  if [[ $(what_operating_system) == 'mac' ]]; then
+    git config --global credential.helper osxkeychain
+  fi
+
+  print_info "Global git config values set:"
+  cat ~/.gitconfig
 }
 
 # Setup git
 function git_setup() {
-    
-echo "+ Checking git"
-    if ! command -v git >/dev/null; then
-        echo -e "- ERROR: git is required for publishing\nhttps://git-scm.com/"
-        exit 1
+  print_header "Git"
+  print_info "Verifying git..."
+  if command_exists git; then
+    local readonly gitVersionStr=$(git --version)
+    local readonly gitVersion="${gitVersionStr#"git version "}"
+    local readonly gitVersionMajor=$(echo "$gitVersion" | awk -F \. {'print $1'})
+    local readonly gitVersionMinor=$(echo "$gitVersion" | awk -F \. {'print $2'})
+
+    # Minimum git version: 2.30.x
+    if [[ $gitVersionMajor -lt 2 || $gitVersionMajor -eq 2 && $gitVersionMinor -lt 30 ]]; then
+      print_warn "$gitVersion is lower than desired. Updating..."
+      install_git
     else
-        local readonly gitPrefix="git version "
-        local readonly gitVersion=$(git --version)
-        local readonly gitVersionMajor=$(echo "${gitVersion#$gitPrefix}" | awk -F \. {'print $1'})
-
-        if [ "$gitVersionMajor" == "1" ]
-            then
-            echo -e "- ERROR: git@^2 is required for publishing\nhttps://git-scm.com/"
-            exit 1
-        else
-            echo "+ Git is installed at the minimum required version: $(git --version)"
-        fi
+      print_info "$gitVersion is already installed"
     fi
+  else
+    print_warn "Git is not installed. Installing..."
+    install_git
+  fi
 
-    git config --global user.name "$1"
-    git config --global user.email "$2"
-    
-    git config --global push.default current
-
+  configure_git
 }

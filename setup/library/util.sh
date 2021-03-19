@@ -34,7 +34,7 @@ function _append_line_to_profiles() {
 }
 
 # What Operating System
-what_operating_system(){
+function what_operating_system(){
     case "$(uname -s)" in
 
        Darwin)
@@ -57,13 +57,36 @@ what_operating_system(){
 }
 
 # Create folder if doesn't exist
-create_folder_if_doesnt_exist() {
+function create_folder_if_doesnt_exist() {
     if [ ! -d "$1" ]; then
       mkdir $1
     fi 
 }
 
 # Setup the file structure for code
-set_up_file_structure () {
+function set_up_file_structure () {
     create_folder_if_doesnt_exist ~/programming
+}
+
+function print_header() {
+  echo ""
+  echo "------------------------------------------------------------"
+  echo $1
+  echo "------------------------------------------------------------"
+}
+
+function print_info() {
+  echo "+ $1"
+}
+
+function print_warn() {
+  echo "- $1"
+}
+
+function print_error() {
+  echo "[ERROR] $1"
+}
+
+function command_exists () {
+  type $1 &> /dev/null
 }
