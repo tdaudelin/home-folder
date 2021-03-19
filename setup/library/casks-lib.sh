@@ -10,19 +10,11 @@ function install_emacs() {
   fi
 }
 
-function install_jetbrains() {
-  print_info "Installing Jetbrains Toolbox..."
-  brew install --cask jetbrains-toolbox
-}
-
-function install_vscode() {
-  print_info "Installing VSCode..."
-  brew install --cask visual-studio-code
-}
-
-function ide_setup() {
-  print_header "IDEs"
+function casks_setup() {
+  print_header "Casks"
   install_emacs
-  install_jetbrains
-  install_vscode
+  brew cask install docker \
+      google-chrome \
+      jetbrains-toolbox \
+      visual-studio-code
 }

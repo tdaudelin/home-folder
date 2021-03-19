@@ -65,7 +65,8 @@ main(){
     # # Setup 
     # ops_tools_setup
 
-    ide_setup
+    # Install various brew casks
+    casks_setup
 
     exit 0
 }
