@@ -24,4 +24,7 @@ function node_setup() {
   
   # # Additional ~/.npmrc settings
   # npm config set save-exact true
+
+  print_info "Installing Vue CLI..."
+  npm i -g @vue/cli
 }

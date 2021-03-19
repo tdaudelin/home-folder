@@ -65,6 +65,8 @@ main(){
     # # Setup 
     # ops_tools_setup
 
+    ide_setup
+
     exit 0
 }
 
