@@ -34,7 +34,7 @@ function _append_line_to_profiles() {
 }
 
 # What Operating System
-function what_operating_system(){
+function which_os(){
     case "$(uname -s)" in
 
        Darwin)

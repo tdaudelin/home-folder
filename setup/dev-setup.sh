@@ -9,8 +9,8 @@ done
 
 # Where the magic happens
 main(){
-    # echo "Please enter your password for sudo"
-    # sudo echo "Su-done"
+    echo "Please enter your password for sudo"
+    sudo echo "Su-done"
 
     # We might need this if the script takes too long too download
     # while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
@@ -45,10 +45,16 @@ main(){
     # Spawn a child process for other cli commands that we can run that aren't 
     #           related to homebrew, git, sdkman or development tools
 
-
-    if [[ $(what_operating_system) == 'mac' ]]; then
+    local readonly os="$(which_os)"
+    if [[ os == "mac" ]]; then
       mac_osx_setup
       homebrew_setup
+      # Install various brew casks
+      casks_setup
+    elif [[ os == "linux" ]]; then
+      sudo apt update && sudo apt -y upgrade
+      # For correcting WSL time desync
+      sudo apt-get install ntpdate -y
     fi
 
     # Setup Git
@@ -67,9 +73,6 @@ main(){
 
     # # Setup 
     # ops_tools_setup
-
-    # Install various brew casks
-    casks_setup
 
     exit 0
 }

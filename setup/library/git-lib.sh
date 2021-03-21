@@ -1,18 +1,21 @@
 # TODO: refactor to use brew: https://medium.com/@katopz/how-to-upgrade-git-ff00ea12be18
 
 function install_git() {
-  local readonly os="$(what_operating_system)"
-  if [[ os == "mac" ]]; then
-    git config --global credential.helper osxkeychain
+  local readonly os="$(which_os)"
+  if [[ "$os" == "mac" ]]; then
     brew install git
     brew link --force git
-    # force rehash of $PATH to pick up new git executable
-    hash -r
-    print_info "installed $(git --version)"
+  elif [[ "$os" == "linux" ]]; then
+    sudo add-apt-repository ppa:git-core/ppa -y
+    sudo apt-get update
+    sudo apt-get install git -y
   else
     print_error "Unsupported OS: $os"
     exit 1
   fi
+  # force rehash of $PATH to pick up new git executable
+  hash -r
+  print_info "installed $(git --version)"
 }
 
 function configure_git() {
@@ -23,7 +26,7 @@ function configure_git() {
   git config --global user.email "$email"
   git config --global pull.rebase true
   git config --global fetch.prune true
-  if [[ $(what_operating_system) == 'mac' ]]; then
+  if [[ $(which_os) == 'mac' ]]; then
     git config --global credential.helper osxkeychain
   fi
 

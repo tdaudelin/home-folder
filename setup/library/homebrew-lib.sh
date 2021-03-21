@@ -1,4 +1,4 @@
-homebrew_setup() {
+function homebrew_setup() {
   print_header "Homebrew"
   print_info "Verifying brew... "
   if command_exists brew; then
