@@ -3,7 +3,7 @@ function java_setup() {
 
   print_header "Java"
   print_info "Verifying sdkman..."
-  if command_exists sdk; then
+  if sdk version &>/dev/null; then
     print_info "sdkman already installed"
   else
     print_warn "sdkman not found. Installing..."
@@ -13,7 +13,7 @@ function java_setup() {
 
   sdk version
   
-  if command_exists java; then
+  if command_exists java && java -version &> /dev/null; then
     print_info "java already installed."
     java -version
   else

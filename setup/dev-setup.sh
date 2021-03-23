@@ -36,8 +36,8 @@ main(){
 
     # Are you an engineer that might have to deal with AWS?
 
-
-    echo ""
+    local readonly os="$(which_os)"
+    echo "Detected $os OS"
     echo "Do you want to start the script?"
     read -p "Continue? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
 
@@ -45,20 +45,22 @@ main(){
     # Spawn a child process for other cli commands that we can run that aren't 
     #           related to homebrew, git, sdkman or development tools
 
-    local readonly os="$(which_os)"
-    if [[ os == "mac" ]]; then
+    if [[ "$os" == "mac" ]]; then
       mac_osx_setup
       homebrew_setup
-      # Install various brew casks
       casks_setup
-    elif [[ os == "linux" ]]; then
+    elif [[ "$os" == "linux" ]]; then
       sudo apt update && sudo apt -y upgrade
       # For correcting WSL time desync
       sudo apt-get install ntpdate -y
+    else
+      print_warn "No OS-specific setup defined for $os OS"
     fi
 
+    setup_zsh
+
     # Setup Git
-    git_setup "$gitName" "$email"
+    git_setup 
 
     # After git setup, spawn a child process to download all repos of provided slugs, accept a comma sep. list
 

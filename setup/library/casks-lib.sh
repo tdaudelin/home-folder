@@ -5,7 +5,7 @@ function install_emacs() {
   else
     print_warn "emacs not found. Installing..."
     brew tap railwaycat/emacsmacport
-    brew install --cask emacs-mac emacs-mac-spacemacs-icon
+    brew install --cask emacs-mac
     git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
   fi
 }
@@ -14,8 +14,8 @@ function casks_setup() {
   print_header "Casks"
   install_emacs
   print_info "Installing various casks..."
-  brew cask install docker \
-      google-chrome \
+  brew install --cask docker \
       jetbrains-toolbox \
       visual-studio-code
+      # google-chrome # uncomment if needed, usually already installed and will error if found
 }
