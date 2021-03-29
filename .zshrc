@@ -87,6 +87,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# Client-specific shell customization in .custom_config
+[ -f "$HOME/.custom_config_mm" ] && source "$HOME/.custom_config_mm"
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -125,6 +128,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # Pyenv
+export PIPENV_VENV_IN_PROJECT=1
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$HOME/.local/bin:$PATH"
 type pyenv &> /dev/null && eval "$(pyenv init -)"
