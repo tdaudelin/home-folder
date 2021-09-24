@@ -15,7 +15,9 @@ function setup_mac_zsh() {
 }
 
 function setup_linux_zsh() {
-    print_warn "Linux zsh installation not yet supported"
+    sudo apt install zsh
+    chsh -s $(which zsh)
+    setup_ohmyzsh
 }
 
 function setup_zsh() {

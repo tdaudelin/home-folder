@@ -17,7 +17,7 @@ main(){
 
     # read -p "Enter Team Bitbucket Slugs: " TEAM_SLUG
 
-    # Add multi selection for tools to be installed 
+    # Add multi selection for tools to be installed
         # node
         # maven
         # gradle
@@ -42,7 +42,7 @@ main(){
     read -p "Continue? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
 
     # Spawn a child process or shell to start downloading applications like Intellij, VSCode
-    # Spawn a child process for other cli commands that we can run that aren't 
+    # Spawn a child process for other cli commands that we can run that aren't
     #           related to homebrew, git, sdkman or development tools
 
     if [[ "$os" == "mac" ]]; then
@@ -50,9 +50,7 @@ main(){
       homebrew_setup
       casks_setup
     elif [[ "$os" == "linux" ]]; then
-      sudo apt update && sudo apt -y upgrade
-      # For correcting WSL time desync
-      sudo apt-get install ntpdate -y
+      linux_setup
     else
       print_warn "No OS-specific setup defined for $os OS"
     fi
@@ -60,7 +58,7 @@ main(){
     setup_zsh
 
     # Setup Git
-    git_setup 
+    git_setup
 
     # After git setup, spawn a child process to download all repos of provided slugs, accept a comma sep. list
 
@@ -73,7 +71,7 @@ main(){
     # Install python 3 and tools
     python_setup
 
-    # # Setup 
+    # # Setup
     # ops_tools_setup
 
     exit 0
