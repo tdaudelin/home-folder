@@ -82,6 +82,7 @@ plugins=(
   docker-compose
   git
   nvm
+  poetry
   sdk
 )
 
@@ -127,10 +128,10 @@ fi
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-# Pyenv
+# Python
 export PIPENV_VENV_IN_PROJECT=1
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$HOME/.local/bin:$PATH"
+export PATH="$PYENV_ROOT/bin:$HOME/.poetry/bin:$HOME/.local/bin:$PATH"
 type pyenv &> /dev/null && eval "$(pyenv init -)"
 
 # SDKMAN!

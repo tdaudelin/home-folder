@@ -50,4 +50,14 @@ function python_setup() {
   pip install --upgrade pip
   pip install --upgrade setuptools
   pip install --user pipenv
+  curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+  if [ -d "$ZSH_CUSTOM" ]; then
+    mkdir -p $ZSH_CUSTOM/plugins/poetry
+    poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
+  else
+    mkdir -p $HOME/.oh-my-zsh/custom/plugins/poetry
+    poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
+  fi
+  source $HOME/.poetry/env
+  poetry config virtualenvs.in-project true
 }

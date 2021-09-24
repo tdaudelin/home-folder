@@ -13,9 +13,11 @@ function install_emacs() {
 function casks_setup() {
   print_header "Casks"
   install_emacs
-  print_info "Installing various casks..."
+  print_info "Installing various tools and casks..."
+  brew install awscli
   brew install --cask docker \
       jetbrains-toolbox \
+      postman \
       visual-studio-code
       # google-chrome # uncomment if needed, usually already installed and will error if found
 }
