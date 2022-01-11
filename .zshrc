@@ -132,7 +132,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 export PIPENV_VENV_IN_PROJECT=1
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$HOME/.poetry/bin:$HOME/.local/bin:$PATH"
-type pyenv &> /dev/null && eval "$(pyenv init -)"
+type pyenv &> /dev/null && eval "$(pyenv init --path)"
 
 # SDKMAN!
 export SDKMAN_DIR="$HOME/.sdkman"
