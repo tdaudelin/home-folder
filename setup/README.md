@@ -84,4 +84,7 @@ https://cli.vuejs.org/
 
 https://sensible-side-buttons.archagon.net/
 
+Setting up shortcuts to spaces 
+https://apple.stackexchange.com/a/213566
+
 Avatar saved in MM Google Drive
