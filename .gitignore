@@ -9,7 +9,5 @@
 !.spacemacs
 !.bashrc
 !.bash_profile
-!.zshrc
-!.zshrc.pre-oh-my-zsh
 !.p10k.zsh
 !SETUP.md
