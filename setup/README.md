@@ -1,7 +1,6 @@
 ## Desires:
 - Merge in README.deleteme.md to this file
 - Separate out installation of tools like sdk, nvm, etc from installing java,  node, etc using those tools. Make installation optional and require confirmation
-- Remove .zshrc from source control and instead move any customizations to $ZSH_CUSTOM folder. Check these files into source control instead. This will allow me to always have a most-recent copy of oh-my-zsh's .zshrc
 
 ## Shell
 ### Oh My Zsh
