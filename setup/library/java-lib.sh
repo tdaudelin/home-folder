@@ -3,7 +3,7 @@ function java_setup() {
 
   print_header "Java"
   print_info "Verifying sdkman..."
-  if sdk version &>/dev/null; then
+  if sdk version &> /dev/null; then
     print_info "sdkman already installed"
   else
     print_warn "sdkman not found. Installing..."
@@ -12,14 +12,14 @@ function java_setup() {
   fi
 
   sdk version
-  
+
   if command_exists java && java -version &> /dev/null; then
     print_info "java already installed."
     java -version
   else
     print_warn "java not found. Installing..."
-    sdk install java 11.0.2-open
-    sdk default java 11.0.2-open
+    sdk install java 11.0.16-tem
+    sdk default java 11.0.16-tem
   fi
   # sdk install groovy
   # sdk install maven

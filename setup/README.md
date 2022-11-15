@@ -1,3 +1,8 @@
+## Desires:
+- Merge in README.deleteme.md to this file
+- Separate out installation of tools like sdk, nvm, etc from installing java,  node, etc using those tools. Make installation optional and require confirmation
+- Remove .zshrc from source control and instead move any customizations to $ZSH_CUSTOM folder. Check these files into source control instead. This will allow me to always have a most-recent copy of oh-my-zsh's .zshrc
+
 ## Shell
 ### Oh My Zsh
 https://github.com/ohmyzsh/ohmyzsh/wiki
@@ -7,6 +12,11 @@ If you get the "there are insecure directories" warning, run:
 ```
 compaudit | xargs chmod g-w
 ```
+
+#### Custom Configuration
+Located in $ZSH_CUSTOM folder.
+This is a great place to put any custom shell env vars / scripting / config as it is loaded on startup just like .zshrc.
+Just create a new file e.g. <client_name>_custom.zsh and fill it with whatever is needed.
 
 ### Theme
 
@@ -58,11 +68,11 @@ https://github.com/nvm-sh/nvm
 $ nvm install --lts
 $ nvm use --lts
 $ nvm install --latest-npm
- 
+
 # Configure NPM to use private Artifactory instead of public NPM registry
 $ curl -u 'USERNAME:PASSWORD' AUTH_URL > ~/.npmrc # npm login --always-auth might also work (need to set registry first)
 $ npm config set registry VIRTUAL_REGISTRY_URL
- 
+
 # Additional ~/.npmrc settings
 $ npm config set save-exact true
 $ npm config set engine-strict true
@@ -84,7 +94,7 @@ https://cli.vuejs.org/
 
 https://sensible-side-buttons.archagon.net/
 
-Setting up shortcuts to spaces 
+Setting up shortcuts to spaces
 https://apple.stackexchange.com/a/213566
 
 Avatar saved in MM Google Drive

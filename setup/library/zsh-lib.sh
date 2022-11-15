@@ -3,8 +3,11 @@ function setup_ohmyzsh() {
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     git checkout -- .zshrc .zshrc.pre-oh-my-zsh
 
+    print_info "Copying custom scripts..."
+    cp ~/setup/custom/* ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}
+
     print_info "Installing Powerlevel10k theme..."
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 }
 
 function setup_mac_zsh() {
