@@ -40,5 +40,4 @@ function mac_osx_setup() {
     verify_make
 
     configure_finder
-
 }

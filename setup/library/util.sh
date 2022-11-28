@@ -50,7 +50,7 @@ function which_os(){
          ;;
 
        *)
-         echo 'other' 
+         echo 'other'
          ;;
 
     esac
@@ -60,7 +60,7 @@ function which_os(){
 function create_folder_if_doesnt_exist() {
     if [ ! -d "$1" ]; then
       mkdir $1
-    fi 
+    fi
 }
 
 # Setup the file structure for code
@@ -89,4 +89,8 @@ function print_error() {
 
 function command_exists () {
   type $1 &> /dev/null
+}
+
+function zsh_custom () {
+  echo ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}
 }

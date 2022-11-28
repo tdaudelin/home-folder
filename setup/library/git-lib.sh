@@ -15,7 +15,7 @@ function install_git() {
   fi
   # force rehash of $PATH to pick up new git executable
   hash -r
-  print_info "installed $(git --version)"
+  print_info "Installed Git $(git --version)"
 }
 
 function configure_git() {
@@ -46,10 +46,10 @@ function git_setup() {
 
     # Minimum git version: 2.30.x
     if [[ $gitVersionMajor -lt 2 || $gitVersionMajor -eq 2 && $gitVersionMinor -lt 30 ]]; then
-      print_warn "$gitVersion is lower than desired. Updating..."
+      print_warn "Git ($gitVersion) is lower than desired. Updating..."
       install_git
     else
-      print_info "$gitVersion is already installed"
+      print_info "Git ($gitVersion) is already installed"
     fi
   else
     print_warn "Git is not installed. Installing..."
