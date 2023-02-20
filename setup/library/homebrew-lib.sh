@@ -6,6 +6,9 @@ function homebrew_setup() {
   else
     print_warn "brew is not installed. Installing..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo '# Set PATH, MANPATH, etc., for Homebrew.' >> ~/.zprofile
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
   print_info "updating and upgrading brew..."
   brew update && brew upgrade

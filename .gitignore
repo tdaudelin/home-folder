@@ -9,5 +9,5 @@
 !.spacemacs
 !.bashrc
 !.bash_profile
-!.p10k.zsh
+#!.p10k.zsh
 !SETUP.md
