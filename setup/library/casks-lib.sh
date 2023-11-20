@@ -25,6 +25,7 @@ function casks_setup() {
   brew install --cask docker \
       google-cloud-sdk \
       jetbrains-toolbox \
+      mongodb-compass \
       postman \
       visual-studio-code
       # google-chrome # uncomment if needed, usually already installed and will error if found
