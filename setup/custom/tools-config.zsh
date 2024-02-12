@@ -1,9 +1,11 @@
-# This file is a paste of the last lines from .zshrc after it was created by oh-my-zsh and then my install scripts were run for NVM, Python and Java.
-# I /think/ these were auto-generated but I am keeping them here just in case they were not and I need to paste them back myself.
+# Uncomment the below lines to enable the tools you want to use
 
-# # NVM
-# export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# Set PATH, MANPATH, etc., for Homebrew.
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# NVM
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # # Python
 # export PIPENV_VENV_IN_PROJECT=1

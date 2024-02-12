@@ -24,10 +24,10 @@ function node_setup() {
   # # Configure NPM to use Artifactory instead of public NPM registry
   # curl -u 'USERNAME:PASSWORD' https://<on-prem artifactory domain>/artifactory/api/npm/auth > ~/.npmrc
   # npm config set registry https://<on-prem artifactory domain>/artifactory/api/npm/npm-virtual
-  
+
   # # Additional ~/.npmrc settings
   # npm config set save-exact true
 
-  print_info "Installing Vue CLI..."
-  npm i -g @vue/cli
+  # print_info "Installing Vue CLI..."
+  # npm i -g @vue/cli
 }
